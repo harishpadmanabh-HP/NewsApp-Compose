@@ -1,4 +1,4 @@
-package com.hpcoding.newsapp_compose.ui.theme
+package com.hpcoding.newsapp_compose.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

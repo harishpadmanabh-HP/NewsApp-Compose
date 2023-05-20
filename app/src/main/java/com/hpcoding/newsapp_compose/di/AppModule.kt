@@ -27,7 +27,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNewsRepository(api: NewsApi) = NewsRepositoryImpl(api)
+    fun provideNewsRepository(api: NewsApi):NewsRepository = NewsRepositoryImpl(api)
 
     @Provides
     @Singleton

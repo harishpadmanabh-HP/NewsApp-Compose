@@ -1,4 +1,4 @@
-package com.hpcoding.newsapp_compose.ui.theme
+package com.hpcoding.newsapp_compose.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

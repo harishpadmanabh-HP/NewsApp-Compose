@@ -2,6 +2,13 @@
 <resources>
 
     <style name="Theme.NewsAppCompose" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/purple_700</item>
+        <item name="android:statusBarColor">@color/Olive</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+    <style name="Theme.CustomSplashScreenTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/Olive</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenAnimationDuration">4000</item>
+        <item name="postSplashScreenTheme">@style/Theme.NewsAppCompose</item>
     </style>
 </resources>
