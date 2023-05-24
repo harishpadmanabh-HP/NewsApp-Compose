@@ -7,4 +7,6 @@ import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(private val api: NewsApi) :NewsRepository{
     override suspend fun getNews(search:String): NewsListDto  = api.getAllNews(search)
+    override suspend fun getSearchQueries(search: String): NewsListDto = api.getSearchResults(search)
+
 }

@@ -12,8 +12,14 @@ class GetNewsUseCase @Inject constructor(private val repository: NewsRepository)
     fun getNewsList(search: String = ""): Flow<Resource<List<NewsItem>>> = flow {
         try {
             emit(Resource.Loading())
-            val news = repository.getNews(search).articles.map {
-                it.toNewsItem()
+            val news = if (search.isEmpty()) {
+                repository.getNews(search).articles.map {
+                    it.toNewsItem()
+                }
+            } else {
+                repository.getSearchQueries(search).articles.map {
+                    it.toNewsItem()
+                }
             }
             emit(Resource.Success(news))
         } catch (e: HttpException) {

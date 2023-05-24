@@ -11,9 +11,11 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.*
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -27,6 +29,7 @@ import com.hpcoding.newsapp_compose.R
 import com.hpcoding.newsapp_compose.presentation.theme.Black
 import com.hpcoding.newsapp_compose.presentation.theme.Olive
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun ListHeader(
     query: String,
@@ -34,6 +37,9 @@ fun ListHeader(
     onSearch: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
+
+    val keyboard = LocalSoftwareKeyboardController.current
+
     Column(modifier = modifier.fillMaxWidth()) {
         Text(
             text = "Discover", style = TextStyle(
@@ -56,6 +62,7 @@ fun ListHeader(
             onSearchQueryChange(it)
         }, onSubmitQuery = {
             onSearch(it)
+            keyboard?.hide()
         })
 
         Spacer(modifier = Modifier.height(14.dp))

@@ -19,9 +19,9 @@ data class NewsListDto(
 @Keep
 data class Source(
     @SerializedName("id")
-    val id: String,
+    val id: String?,
     @SerializedName("name")
-    val name: String
+    val name: String?
 )
 
 
@@ -32,7 +32,7 @@ data class Article(
     @SerializedName("content")
     val content: String,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("publishedAt")
     val publishedAt: String,
     @SerializedName("source")
@@ -42,14 +42,14 @@ data class Article(
     @SerializedName("url")
     val url: String,
     @SerializedName("urlToImage")
-    val urlToImage: String
+    val urlToImage: String?
 )
 
 fun Article.toNewsItem() = NewsItem(
-    imageUrl = urlToImage,
-    title = title,
-    description = description,
-    publishedAt = publishedAt,
-    author = author,
-    content = content
+    imageUrl = urlToImage ?: "",
+    title = title ?: "",
+    description = description ?: "",
+    publishedAt = publishedAt ?: "",
+    author = author ?: "",
+    content = content ?: ""
 )
